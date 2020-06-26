@@ -3,7 +3,6 @@ import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Drawer from "@material-ui/core/Drawer";
-import Box from "@material-ui/core/Box";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
@@ -14,27 +13,12 @@ import Badge from "@material-ui/core/Badge";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Link from "@material-ui/core/Link";
+//import Link from "@material-ui/core/Link";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./ListItems";
-import Chart from "./Chart";
-import Deposits from "./Deposits";
-import Orders from "./Orders";
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+import MediaCard from "./shared/MediaCard";
 
 const drawerWidth = 240;
 
@@ -115,9 +99,14 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  paperSubject: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
 }));
 
-export default function MyTable() {
+export default function MyTable(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -126,7 +115,7 @@ export default function MyTable() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  //const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div className={classes.root}>
@@ -185,30 +174,92 @@ export default function MyTable() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
-              <Paper className={fixedHeightPaper}>
-                <Chart />
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                <Deposits />
-              </Paper>
-            </Grid>
             {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <Orders />
-              </Paper>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={4}>
+                <Paper
+                  className={classes.paperSubject}
+                  style={{ paddingLeft: "7%" }}
+                >
+                  <MediaCard
+                    ImgUrl="https://www.industryglobalnews24.com/images/the-search-for-the-origin-of-lifeextraterrestrial-biology.jpeg"
+                    CardTitle="biology"
+                    CardContent="Biology"
+                    UnitNum="10"
+                    Button1Text="ENROLL NOW"
+                  />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Paper
+                  className={classes.paperSubject}
+                  style={{ paddingLeft: "7%" }}
+                >
+                  <MediaCard
+                    ImgUrl="https://jobs.newscientist.com/getasset/c40a5488-11be-43b0-843f-a2e6ef9f0612/"
+                    CardTitle="chemistry"
+                    CardContent="Chemistry"
+                    UnitNum="10"
+                    Button1Text="ENROLL NOW"
+                  />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Paper
+                  className={classes.paperSubject}
+                  style={{ paddingLeft: "7%" }}
+                >
+                  <MediaCard
+                    ImgUrl="https://www.indiaeducation.net/imagesvr_ce/3698/physics.jpg"
+                    CardTitle="physics"
+                    CardContent="Physics"
+                    UnitNum="10"
+                    Button1Text="ENROLL NOW"
+                  />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Paper
+                  className={classes.paperSubject}
+                  style={{ paddingLeft: "7%" }}
+                >
+                  <MediaCard
+                    ImgUrl="https://wintechnology.com/wp-content/uploads/2018/12/it-mindset-or-technology-1080x627.jpg"
+                    CardTitle="it"
+                    CardContent="Information Technology"
+                    UnitNum="10"
+                    Button1Text="ENROLL NOW"
+                  />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <Paper
+                  className={classes.paperSubject}
+                  style={{ paddingLeft: "7%" }}
+                >
+                  <MediaCard
+                    ImgUrl="https://www.topuniversities.com/sites/default/files/styles/700xauto/public/articles/lead-images/What_Can_You_Do_With_A_Math_Degree.jpg"
+                    CardTitle="maths"
+                    CardContent="Combined Mathematics"
+                    UnitNum="10"
+                    Button1Text="Pure Maths"
+                    Button2Text="Applied Maths"
+                  />
+                </Paper>
+              </Grid>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
       </main>
     </div>
   );
 }
+
+/*
+<Grid item xs={12} md={8} lg={9}>
+<Paper className={fixedHeightPaper}></Paper>
+</Grid>
+<Grid item xs={12} md={4} lg={3}>
+<Paper className={fixedHeightPaper}></Paper>
+</Grid>
+*/
