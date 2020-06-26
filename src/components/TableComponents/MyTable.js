@@ -19,6 +19,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems, secondaryListItems } from "./ListItems";
 import MediaCard from "./shared/MediaCard";
+//import ProfileAvatar from "./shared/ProfileAvatar"
 
 const drawerWidth = 240;
 
@@ -146,11 +147,6 @@ export default function MyTable(props) {
           >
             MyTable
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Drawer
